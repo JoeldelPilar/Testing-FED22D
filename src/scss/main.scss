@@ -1,47 +1,54 @@
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	background-color: hsl(345, 24%, 50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5rem;
 }
 
 .todo {
-  list-style: none;
-  padding: 0;
-  width: 50%;
+	list-style: none;
+	padding: 0;
+	width: 50%;
 
-  &__text {
-    margin: 20px 0;
-    padding: 5px 0;
-    border: 1px solid grey;
-    border-radius: 5px;
-    width: 100%;
-    text-align: center;
-    transition: transform 0.3s;
+	&__text {
+		margin: 20px 0;
+		padding: 5px 0;
+		border: 1px solid whitesmoke;
+		border-radius: 5px;
+		width: 100%;
+		text-align: center;
+		transition: transform 0.3s;
+		color: whitesmoke;
 
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.3);
-      transform: scale(1.05);
-      cursor: pointer;
-    }
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.3);
+			transform: scale(1.05);
+			cursor: pointer;
+		}
 
-    &--done {
-      text-decoration: line-through;
-    }
-  }
+		&--done {
+			text-decoration: line-through;
+		}
+	}
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .error {
-  color: red;
-  font-size: 1.1em;
-  display: none;
+	color: red;
+	font-size: 1.1em;
+	display: none;
+	letter-spacing: 0.5rem;
+	border: 1px solid white;
+	padding: 2rem;
+	margin-block-start: 2rem;
 }
 
 .show {
-  display: block;
+	display: block;
 }
