@@ -21,7 +21,7 @@ document.getElementById("clearTodos")?.addEventListener("click", () => {
   }
 );
 
-function createNewTodo(todoText: string, todos: Todo[]) {
+export function createNewTodo(todoText: string, todos: Todo[]) {
   let result = addTodo(todoText, todos);
 
   if (result.success) {
@@ -31,7 +31,7 @@ function createNewTodo(todoText: string, todos: Todo[]) {
   }
 }
 
-function createHtml(todos: Todo[]) {
+export function createHtml(todos: Todo[]) {
   localStorage.setItem("todos", JSON.stringify(todos));
 
   let todosContainer: HTMLUListElement = document.getElementById(
@@ -41,7 +41,7 @@ function createHtml(todos: Todo[]) {
   todosContainer.innerHTML = "";
 
   for (let i = 0; i < todos.length; i++) {
-    let li: HTMLLIElement = document.createElement("li");
+    let li: HTMLLIElement = document.createElement("li") as HTMLLIElement;
 
     if (todos[i].done) {
       li.classList.add("todo__text--done");
@@ -54,15 +54,15 @@ function createHtml(todos: Todo[]) {
     });
 
     todosContainer.appendChild(li);
-  }
+  } 
 }
 
-function toggleTodo(todo: Todo) {
+export function toggleTodo(todo: Todo) {
   changeTodo(todo);
   createHtml(todos);
 }
 
-function displayError(error: string, show: boolean) {
+export function displayError(error: string, show: boolean) {
   let errorContainer: HTMLDivElement = document.getElementById(
     "error"
   ) as HTMLDivElement;
@@ -74,11 +74,11 @@ function displayError(error: string, show: boolean) {
   } else {
     errorContainer.classList.remove("show");
   }
-}
+};
 
-function clearTodos(todos: Todo[]) {
+export function clearTodos(todos: Todo[]) {
   removeAllTodos(todos);
-  createHtml(todos);
+  exports.createHtml(todos);
 }
 
-createHtml(todos);
+// createHtml(todos);
