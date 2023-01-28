@@ -60,4 +60,28 @@ test('should clear all todos', () => {
 
     //Assert
     expect(todos).toEqual(result);
- })
+    expect(todos[2].done).toBe(true);
+ });
+
+  test('last object in todos should have the correct values', () => {
+
+    //Arrange
+    let todos = [
+        {text: 'test', done: true},
+        {text: 'false', done: false},
+        {text: 'false', done: false}
+    ];
+
+    let result = [
+        {text: 'false', done: false},
+        {text: 'false', done: false},
+        {text: 'test', done: true}
+    ];
+
+    //Act
+    sortTodos(todos);
+
+    //Assert
+    expect(todos[2].text).toBe('test');
+    expect(todos[2].done).toBe(true);
+ });
